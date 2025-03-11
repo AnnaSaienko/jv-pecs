@@ -16,25 +16,26 @@ public class MachineServiceImpl implements MachineService<Machine> {
         List<? extends Machine> machines = null;
         if (type == Bulldozer.class) {
             machines = new BulldozerProducer().get();
+            return new ArrayList<>(machines);
         }
         if (type == Excavator.class) {
             machines = new ExcavatorProducer().get();
+            return new ArrayList<>(machines);
         }
         if (type == Truck.class) {
             machines = new TruckProducer().get();
+            return new ArrayList<>(machines);
         }
-        return new ArrayList<>(machines);
+        return new ArrayList<>();
     }
 
     @Override
-    public void fill(List<? extends Machine> machines, Machine value) {
-        for (Machine machine : machines) {
-            machine = value;
-        }
+    public void fill(List<Machine> machines, Machine value) {
+        machines.replaceAll(ignored -> value);
     }
 
     @Override
-    public void startWorking(List<? extends Machine> machines) {
+    public void startWorking(List<Machine> machines) {
         for (Machine machine : machines) {
             machine.doWork();
         }

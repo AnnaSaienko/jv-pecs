@@ -10,12 +10,18 @@ public class Excavator extends Machine {
     public Excavator() {
     }
 
+    public Excavator(String name, String color, int maxWeight) {
+        this.setName(name);
+        this.setColor(color);
+        this.maxWeight = maxWeight;
+    }
+
     @Override
     public void doWork() {
         System.out.println("Excavator started to work");
     }
 
-    public boolean checkWeight(int weight) {
-        return weight <= maxWeight;
+    public void setMaxWeight(int maxWeight) {
+        this.maxWeight = maxWeight;
     }
 }

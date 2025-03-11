@@ -10,13 +10,15 @@ public class Bulldozer extends Machine {
     public Bulldozer() {
     }
 
+    public Bulldozer(String name, String color, boolean scoop) {
+        this.setName(name);
+        this.setColor(color);
+        this.scoop = scoop;
+    }
+
     @Override
     public void doWork() {
         System.out.println("Bulldozer started to work");
-    }
-
-    public boolean isScoop() {
-        return scoop;
     }
 
     public void setScoop(boolean scoop) {
