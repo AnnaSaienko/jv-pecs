@@ -5,11 +5,17 @@ package core.mate.academy.model;
  * Do not remove no-args constructor
  */
 public class Excavator extends Machine {
+    private int maxWeight = 12000;
+
     public Excavator() {
     }
 
     @Override
     public void doWork() {
         System.out.println("Excavator started to work");
+    }
+
+    public boolean checkWeight(int weight) {
+        return weight <= maxWeight;
     }
 }
